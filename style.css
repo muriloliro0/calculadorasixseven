@@ -1,0 +1,117 @@
+body {
+    background-color: #5A7EDC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Tahoma", sans-serif;
+}
+
+.joke-gif-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 9999;
+}
+
+.joke-gif-container img {
+    width: 180px;
+    border: 2px solid #FFF;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.animate-gif {
+    animation: fadeUp 2.5s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translate(-50%, -40%) scale(0.7); }
+    15% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -180%) scale(1.1); }
+}
+
+.desktop-icon-area {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.desktop-shortcut {
+    background: transparent;
+    border: 1px solid transparent;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    width: 110px;
+}
+
+.desktop-shortcut:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.desktop-shortcut .icon { font-size: 3.5rem; margin-bottom: 5px; }
+.desktop-shortcut .label { text-shadow: 1px 1px 2px black; font-weight: bold; font-size: 0.9rem; }
+
+.window {
+    background-color: #ECE9D8;
+    border: 3px solid #0055E5;
+    border-radius: 8px 8px 0 0;
+    width: 450px;
+    padding: 2px;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.4);
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.window.scientific-active { width: 820px; }
+
+.title-bar {
+    background: linear-gradient(to bottom, #0058E6 0%, #3A93FF 10%, #288EFC 14%, #005BE9 100%);
+    padding: 6px 10px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-weight: bold;
+}
+
+.display {
+    background-color: white;
+    border: 3px inset #7F9DB9;
+    height: 90px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+    font-size: 3.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.layout-flex { display: flex; gap: 20px; overflow: hidden; }
+.grid-standard { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; min-width: 410px; }
+.grid-scientific { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; min-width: 330px; border-left: 2px groove #fff; padding-left: 20px; opacity: 0; transition: 0.4s; pointer-events: none; }
+.window.scientific-active .grid-scientific { opacity: 1; pointer-events: auto; }
+.section-label { grid-column: span 2; text-align: center; color: #666; font-size: 0.8rem; }
+
+button {
+    height: 65px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid #003C74;
+    background: linear-gradient(to bottom, #FFF 0%, #E0E0E0 100%);
+    border-radius: 4px;
+    cursor: pointer;
+    color: #003C74;
+}
+
+button:active { background: #CDCDCD; }
+.btn-op { color: #CC0000; }
+.equal { grid-row: span 2; height: 140px; background: #FF9933; color: white; }
+.zero { grid-column: span 2; }
